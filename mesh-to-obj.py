@@ -30,7 +30,7 @@ def main(argv):
             print("Converting Vertices...")
             for x in range(5,number_of_vertices+5):
                 line = filedata[x]
-                coords = line.split(' ')
+                coords = line.split()
                 coords.pop()
                 coords = [float(coord) for coord in coords]
                 out_data += "v %f %f %f\n" % (coords[0], coords[1], coords[2])
@@ -40,7 +40,7 @@ def main(argv):
             print("Converting Triangles...")
             for x in range(number_of_vertices+number_of_normals+11,number_of_vertices+number_of_normals+11+number_of_triangles):
                 line = filedata[x]
-                indexes = line.split(' ')
+                indexes = line.split()
                 indexes.pop()
                 indexes = [int(index) for index in indexes]
                 out_data += "f %i %i %i\n" % (indexes[0], indexes[1], indexes[2])
